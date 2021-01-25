@@ -1,0 +1,22 @@
+{% extends 'admin/adminbase.html' %}
+{% block title %}
+Edit users
+{% endblock %}
+{% block content %}
+
+    <form method="POST" action="{% url 'edit_user' user.username %}">
+{#        {% for user in user %}#}
+    {% csrf_token %}
+     <div class="form-group">
+    <label for="exampleInputPassword1">Username</label>
+    <input type="text" class="form-control" name="username" id="username" value="{{ user.username }}">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" value="{{ user.email }}">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+{#        {% endfor %}#}
+
+</form>
+{% endblock %}

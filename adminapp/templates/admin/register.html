@@ -1,0 +1,16 @@
+{% extends 'admin/adminbase.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+        <legend class="border-bottom mb-3">Sign up</legend>
+        {{ form|crispy }}
+    </fieldset>
+    <div class="form-group mt-2">
+    <button class="btn btn-outline-success" type="submit">Sign Up</button>
+    </div>
+</form>
+{% endblock %}
+
+
